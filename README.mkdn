@@ -12,7 +12,12 @@ This is a different approach to using `[Bootstrap::lib]` that absolves a distrib
 
     dzil self build
 
-This is largely similar to using `[Bootstrap::lib]` and doing
+This is largely similar to using
+
+    [Bootstrap::lib]
+    try_built = 1
+
+and doing
 
     dzil build && dzil build
 

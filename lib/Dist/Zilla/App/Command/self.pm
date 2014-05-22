@@ -17,7 +17,12 @@ This is a different approach to using C<[Bootstrap::lib]> that absolves a distri
 
   dzil self build
 
-This is largely similar to using C<[Bootstrap::lib]> and doing
+This is largely similar to using
+
+  [Bootstrap::lib]
+  try_built = 1
+
+and doing
 
   dzil build && dzil build
 
