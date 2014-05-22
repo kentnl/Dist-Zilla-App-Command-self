@@ -91,8 +91,9 @@ sub execute {
     $_->build for @builders;
   }
 
-  my $sep = $Config::Config{path_sep};
-  my @lib = split /\Q$sep\E/, $ENV{PERL5LIB} || '';
+  my $sep = $Config::Config{path_sep};  ## no critic (Variables::ProhibitPackageVars)
+
+  my @lib = split /\Q$sep\E/, $ENV{PERL5LIB} || q[];
   push @lib, Path::Tiny::path($target)->child('blib/lib');
   push @lib, Path::Tiny::path($target)->child('blib/arch');
 
@@ -142,7 +143,7 @@ Is something you can do.
 
 =head1 CAVEATS
 
-The nature of this implies that your distribution will probably need an older generation of itself for the intial bootstrap.
+The nature of this implies that your distribution will probably need an older generation of itself for the initial bootstrap.
 
 That is to say:
 

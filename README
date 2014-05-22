@@ -30,7 +30,7 @@ SYNOPSIS
 
 CAVEATS
     The nature of this implies that your distribution will probably need an
-    older generation of itself for the intial bootstrap.
+    older generation of itself for the initial bootstrap.
 
     That is to say:
 
