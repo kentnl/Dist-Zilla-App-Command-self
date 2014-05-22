@@ -82,7 +82,7 @@ sub execute {
 
   Data::Dump::pp({
     root => Path::Tiny::path($root)->absolute,
-    target => $target,
+    target => Path::Tiny::path($target)->absolute,
     opt => $opt,
     arg => $arg,
   });
