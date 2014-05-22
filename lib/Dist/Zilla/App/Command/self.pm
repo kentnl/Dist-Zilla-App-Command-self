@@ -93,7 +93,7 @@ sub execute {
 
   my $sep = $Config::Config{path_sep};                                ## no critic (Variables::ProhibitPackageVars)
 
-  my @lib = split /\Q$sep\E/, $ENV{PERL5LIB} || q[];
+  my @lib = split $sep, $ENV{PERL5LIB} || q[];
   push @lib, Path::Tiny::path($target)->child('blib/lib');
   push @lib, Path::Tiny::path($target)->child('blib/arch');
 
