@@ -82,11 +82,12 @@ sub execute {
   require Path::Tiny;
   require File::pushd;
   require Config;
+  require Carp;
 
   {
     my $wd       = File::pushd::pushd($target); ## no critic (Variables::ProhibitUnusedVarsStricter)
-    my @builders = @{ $self->zilla->plugins_with( -BuildRunner ) };
-    die "no BuildRunner plugins specified" unless @builders;
+    my @builders = @{ $self->zilla->plugins_with( '-BuildRunner' ) };
+    Carp::croak 'no BuildRunner plugins specified' unless @builders;
     $_->build for @builders;
   }
 

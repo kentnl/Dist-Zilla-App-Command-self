@@ -22,6 +22,7 @@ provides:
     file: lib/Dist/Zilla/App/Command/self.pm
     version: '0.001000'
 requires:
+  Carp: '0'
   Dist::Zilla::App: '0'
   File::pushd: '0'
   Path::Tiny: '0'
@@ -33,6 +34,7 @@ x_BuiltWith:
   modules:
     CPAN::Meta: '2.141170'
     CPAN::Meta::Requirements: '2.125'
+    Carp: '1.3301'
     Dist::Zilla::App: '5.019'
     Dist::Zilla::Plugin::Authority: '1.006'
     Dist::Zilla::Plugin::AutoPrereqs: '5.019'
