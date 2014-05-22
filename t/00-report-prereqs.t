@@ -108,7 +108,6 @@ my $static_prereqs = do { my $x = {
                     },
        'runtime' => {
                       'requires' => {
-                                      'Data::Dump' => '0',
                                       'Dist::Zilla::App' => '0',
                                       'File::pushd' => '0',
                                       'Path::Tiny' => '0',

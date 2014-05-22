@@ -5,7 +5,9 @@ package Dist::Zilla::App::Command::self;
 $Dist::Zilla::App::Command::self::VERSION = '0.001000';
 # ABSTRACT: Build a distribution with a bootstrapped version of itself.
 
-use Dist::Zilla::App -command;
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
+
+use Dist::Zilla::App '-command';
 
 
 
@@ -65,26 +67,24 @@ use Dist::Zilla::App -command;
 
 
 
-sub abstract { 'Build a distribution with a boostrapped version of itself' }
+## no critic (NamingConventions::ProhibitAmbiguousNames)
+sub abstract { return 'Build a distribution with a boostrapped version of itself' }
+## use critic
 
 sub opt_spec { }
 
 sub execute {
-  my ( $self, $opt, $arg ) = @_;
+  my ( $self, undef, $arg ) = @_;
 
-  warn "Executing <<dzil @{$arg}>> under bootstrapped edition";
-
-  my ( $target, $latest ) = $self->zilla->ensure_built_in_tmpdir;
+  my ( $target, undef ) = $self->zilla->ensure_built_in_tmpdir;
   my $root = $self->zilla->root;
 
-  require Data::Dump;
   require Path::Tiny;
   require File::pushd;
   require Config;
 
-  my $error;
   {
-    my $wd       = File::pushd::pushd($target);
+    my $wd       = File::pushd::pushd($target); ## no critic (Variables::ProhibitUnusedVarsStricter)
     my @builders = @{ $self->zilla->plugins_with( -BuildRunner ) };
     die "no BuildRunner plugins specified" unless @builders;
     $_->build for @builders;
@@ -96,10 +96,9 @@ sub execute {
   push @lib, Path::Tiny::path($target)->child('blib/arch');
 
   local $ENV{PERL5LIB} = join $sep, @lib;
-  {
-    my $wd = File::pushd::pushd( Path::Tiny::path($root)->absolute );
-    return system( 'dzil', @{$arg} );
-  }
+  
+  my $wd = File::pushd::pushd( Path::Tiny::path($root)->absolute ); ## no critic (Variables::ProhibitUnusedVarsStricter)
+  return system( 'dzil', @{$arg} );
 }
 
 1;
