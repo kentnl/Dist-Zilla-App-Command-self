@@ -78,8 +78,10 @@ sub execute {
   my $root = $self->zilla->root;
 
   require Data::Dump;
+  require Path::Tiny;
+
   Data::Dump::pp({
-    root => $root,
+    root => Path::Tiny::path($root)->absolute,
     opt => $opt,
     arg => $arg,
   });
