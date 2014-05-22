@@ -85,22 +85,22 @@ sub execute {
   require Carp;
 
   {
-    my $wd       = File::pushd::pushd($target); ## no critic (Variables::ProhibitUnusedVarsStricter)
-    my @builders = @{ $self->zilla->plugins_with( '-BuildRunner' ) };
+    my $wd       = File::pushd::pushd($target);                       ## no critic (Variables::ProhibitUnusedVarsStricter)
+    my @builders = @{ $self->zilla->plugins_with('-BuildRunner') };
     Carp::croak 'no BuildRunner plugins specified' unless @builders;
     $_->build for @builders;
   }
 
-  my $sep = $Config::Config{path_sep};  ## no critic (Variables::ProhibitPackageVars)
+  my $sep = $Config::Config{path_sep};                                ## no critic (Variables::ProhibitPackageVars)
 
   my @lib = split /\Q$sep\E/, $ENV{PERL5LIB} || q[];
   push @lib, Path::Tiny::path($target)->child('blib/lib');
   push @lib, Path::Tiny::path($target)->child('blib/arch');
 
   local $ENV{PERL5LIB} = join $sep, @lib;
-  
-  my $wd = File::pushd::pushd( Path::Tiny::path($root)->absolute ); ## no critic (Variables::ProhibitUnusedVarsStricter)
-  return system( 'dzil', @{$arg} );
+
+  my $wd = File::pushd::pushd( Path::Tiny::path($root)->absolute );    ## no critic (Variables::ProhibitUnusedVarsStricter)
+  return system 'dzil', @{$arg};
 }
 
 1;
