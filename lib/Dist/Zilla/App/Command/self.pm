@@ -69,6 +69,11 @@ use Dist::Zilla::App '-command';
 
 
 
+
+
+
+
+
 ## no critic (NamingConventions::ProhibitAmbiguousNames)
 sub abstract { return 'Build a distribution with a boostrapped version of itself' }
 ## use critic
@@ -127,13 +132,18 @@ This is a different approach to using C<[Bootstrap::lib]> that absolves a distri
 
   dzil self build
 
-This is largely similar to using C<[Bootstrap::lib]> and doing
+This is largely similar to using
+
+  [Bootstrap::lib]
+  try_built = 1
+
+and doing
 
   dzil build && dzil build
 
 And similar again to:
 
-  dzil run bash -c "cd ../; dzil -I$BUILDDIR/lib dzil build" 
+  dzil run bash -c "cd ../; dzil -I$BUILDDIR/lib dzil build"
 
 Or whatever the magic is that @ETHER uses.
 
