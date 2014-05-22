@@ -79,7 +79,16 @@ sub execute {
 
   require Data::Dump;
   require Path::Tiny;
+  require File::pushd;
 
+  my $error;
+  {
+    my $wd = File::pushd::pushd($target);
+    my @builders = @{ $self->zilla->plugins_with( -BuildRunner ) };
+    die "no BuildRunner plugins specified" unless @builders;
+    $_->build for @builders;
+  }
+  system("find", $target);
   Data::Dump::pp({
     root => Path::Tiny::path($root)->absolute,
     target => Path::Tiny::path($target)->absolute,
