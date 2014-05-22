@@ -92,7 +92,7 @@ sub execute {
 
 
   my $sep = $Config::Config{path_sep};
-  my @lib = split /\Q$sep\E/, $ENV{PERL5LIB};
+  my @lib = split /\Q$sep\E/, $ENV{PERL5LIB} || '';
   push @lib, Path::Tiny::path($target)->child('blib/lib');
   push @lib, Path::Tiny::path($target)->child('blib/arch');
 
