@@ -80,6 +80,7 @@ sub execute {
   require Data::Dump;
   require Path::Tiny;
   require File::pushd;
+  require Config;
 
   my $error;
   {
@@ -88,13 +89,19 @@ sub execute {
     die "no BuildRunner plugins specified" unless @builders;
     $_->build for @builders;
   }
-  system("find", $target);
-  Data::Dump::pp({
-    root => Path::Tiny::path($root)->absolute,
-    target => Path::Tiny::path($target)->absolute,
-    opt => $opt,
-    arg => $arg,
-  });
+
+
+  my $sep = $Config::Config{path_sep};
+  my @lib = split /\Q$sep\E/, $ENV{PERL5LIB};
+  push @lib, Path::Tiny::path($target)->child('blib/lib');
+  push @lib, Path::Tiny::path($target)->child('blib/arch');
+
+  local $ENV{PERL5LIB} = join $sep, @lib;
+
+  {
+    my $wd = File::pushd::pushd(Path::Tiny::path($root)->absolute);
+    return system('dzil', @{$arg});
+  }
 }
 
 1;
