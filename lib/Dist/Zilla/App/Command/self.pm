@@ -84,12 +84,11 @@ sub execute {
 
   my $error;
   {
-    my $wd = File::pushd::pushd($target);
+    my $wd       = File::pushd::pushd($target);
     my @builders = @{ $self->zilla->plugins_with( -BuildRunner ) };
     die "no BuildRunner plugins specified" unless @builders;
     $_->build for @builders;
   }
-
 
   my $sep = $Config::Config{path_sep};
   my @lib = split /\Q$sep\E/, $ENV{PERL5LIB} || '';
@@ -97,10 +96,9 @@ sub execute {
   push @lib, Path::Tiny::path($target)->child('blib/arch');
 
   local $ENV{PERL5LIB} = join $sep, @lib;
-
   {
-    my $wd = File::pushd::pushd(Path::Tiny::path($root)->absolute);
-    return system('dzil', @{$arg});
+    my $wd = File::pushd::pushd( Path::Tiny::path($root)->absolute );
+    return system( 'dzil', @{$arg} );
   }
 }
 
