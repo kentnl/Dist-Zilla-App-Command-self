@@ -1,11 +1,12 @@
 Release history for Dist-Zilla-App-Command-self
 
-0.001001 2014-08-16T23:34:11Z
+0.001001 2014-08-16T23:36:01Z
  [00 Trivial]
  - CPANDAY!
  - no code changes.
  - tests updated.
  - metadata updated.
+ - whitespace reduced.
 
  [Dependencies::Stats]
  - Dependencies changed since 0.001000, see misc/*.deps* for details
@@ -15,6 +16,9 @@ Release history for Dist-Zilla-App-Command-self
 
  [Metadata]
  - move to kentnl org.
+
+ [Misc]
+ - Improve source side POD to reduce build side whitespace.
 
  [Tests]
  - update Test::ReportPrereqs
