@@ -29,9 +29,9 @@ requires:
   utf8: '0'
   warnings: '0'
 resources:
-  bugtracker: https://github.com/kentfredric/Dist-Zilla-App-Command-self/issues
-  homepage: https://github.com/kentfredric/Dist-Zilla-App-Command-self
-  repository: https://github.com/kentfredric/Dist-Zilla-App-Command-self.git
+  bugtracker: https://github.com/kentnl/Dist-Zilla-App-Command-self/issues
+  homepage: https://github.com/kentnl/Dist-Zilla-App-Command-self
+  repository: https://github.com/kentnl/Dist-Zilla-App-Command-self.git
 version: '0.001001'
 x_BuiltWith:
   modules:

@@ -113,13 +113,13 @@
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/kentfredric/Dist-Zilla-App-Command-self/issues"
+         "web" : "https://github.com/kentnl/Dist-Zilla-App-Command-self/issues"
       },
-      "homepage" : "https://github.com/kentfredric/Dist-Zilla-App-Command-self",
+      "homepage" : "https://github.com/kentnl/Dist-Zilla-App-Command-self",
       "repository" : {
          "type" : "git",
-         "url" : "https://github.com/kentfredric/Dist-Zilla-App-Command-self.git",
-         "web" : "https://github.com/kentfredric/Dist-Zilla-App-Command-self"
+         "url" : "https://github.com/kentnl/Dist-Zilla-App-Command-self.git",
+         "web" : "https://github.com/kentnl/Dist-Zilla-App-Command-self"
       }
    },
    "version" : "0.001001",
