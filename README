@@ -3,7 +3,7 @@ NAME
     bootstrapped version of itself.
 
 VERSION
-    version 0.001000
+    version 0.001001
 
 SYNOPSIS
     This is a different approach to using "[Bootstrap::lib]" that absolves a

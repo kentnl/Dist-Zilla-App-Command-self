@@ -1,78 +1,17 @@
-use 5.008; # utf8
+use 5.008;    # utf8
 use strict;
 use warnings;
 use utf8;
 
 package Dist::Zilla::App::Command::self;
-$Dist::Zilla::App::Command::self::VERSION = '0.001000';
+
+our $VERSION = '0.001001';
+
 # ABSTRACT: Build a distribution with a bootstrapped version of itself.
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 use Dist::Zilla::App '-command';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## no critic (NamingConventions::ProhibitAmbiguousNames)
 sub abstract { return 'Build a distribution with a boostrapped version of itself' }
@@ -124,7 +63,7 @@ Dist::Zilla::App::Command::self - Build a distribution with a bootstrapped versi
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 SYNOPSIS
 
