@@ -4,7 +4,7 @@ Dist::Zilla::App::Command::self - Build a distribution with a bootstrapped versi
 
 # VERSION
 
-version 0.001000
+version 0.001001
 
 # SYNOPSIS
 
