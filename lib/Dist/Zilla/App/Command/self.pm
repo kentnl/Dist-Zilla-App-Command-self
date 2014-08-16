@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::App::Command::self;
 
-our $VERSION = '0.001001';
+our $VERSION = '0.001002';
 
 # ABSTRACT: Build a distribution with a bootstrapped version of itself.
 
@@ -63,7 +63,7 @@ Dist::Zilla::App::Command::self - Build a distribution with a bootstrapped versi
 
 =head1 VERSION
 
-version 0.001001
+version 0.001002
 
 =head1 SYNOPSIS
 
