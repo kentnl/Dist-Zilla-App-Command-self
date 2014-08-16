@@ -13,6 +13,44 @@ our $VERSION = '0.001001';
 
 use Dist::Zilla::App '-command';
 
+## no critic (NamingConventions::ProhibitAmbiguousNames)
+sub abstract { return 'Build a distribution with a boostrapped version of itself' }
+## use critic
+
+sub opt_spec { }
+
+sub execute {
+  my ( $self, undef, $arg ) = @_;
+
+  my ( $target, undef ) = $self->zilla->ensure_built_in_tmpdir;
+  my $root = $self->zilla->root;
+
+  require Path::Tiny;
+  require File::pushd;
+  require Config;
+  require Carp;
+
+  {
+    my $wd       = File::pushd::pushd($target);                       ## no critic (Variables::ProhibitUnusedVarsStricter)
+    my @builders = @{ $self->zilla->plugins_with('-BuildRunner') };
+    Carp::croak 'no BuildRunner plugins specified' unless @builders;
+    $_->build for @builders;
+  }
+
+  my $sep = $Config::Config{path_sep};                                ## no critic (Variables::ProhibitPackageVars)
+
+  my @lib = split $sep, $ENV{PERL5LIB} || q[];
+  push @lib, Path::Tiny::path($target)->child('blib/lib');
+  push @lib, Path::Tiny::path($target)->child('blib/arch');
+
+  local $ENV{PERL5LIB} = join $sep, @lib;
+
+  my $wd = File::pushd::pushd( Path::Tiny::path($root)->absolute );    ## no critic (Variables::ProhibitUnusedVarsStricter)
+  return system 'dzil', @{$arg};
+}
+
+1;
+
 =head1 SYNOPSIS
 
 This is a different approach to using C<[Bootstrap::lib]> that absolves a distribution from needing to forcibly embed bootstrapping logic in C<dist.ini>
@@ -75,41 +113,3 @@ The iteration of building the distribution itself from source using C<Generation
 =back
 
 =cut
-
-## no critic (NamingConventions::ProhibitAmbiguousNames)
-sub abstract { return 'Build a distribution with a boostrapped version of itself' }
-## use critic
-
-sub opt_spec { }
-
-sub execute {
-  my ( $self, undef, $arg ) = @_;
-
-  my ( $target, undef ) = $self->zilla->ensure_built_in_tmpdir;
-  my $root = $self->zilla->root;
-
-  require Path::Tiny;
-  require File::pushd;
-  require Config;
-  require Carp;
-
-  {
-    my $wd       = File::pushd::pushd($target);                       ## no critic (Variables::ProhibitUnusedVarsStricter)
-    my @builders = @{ $self->zilla->plugins_with('-BuildRunner') };
-    Carp::croak 'no BuildRunner plugins specified' unless @builders;
-    $_->build for @builders;
-  }
-
-  my $sep = $Config::Config{path_sep};                                ## no critic (Variables::ProhibitPackageVars)
-
-  my @lib = split $sep, $ENV{PERL5LIB} || q[];
-  push @lib, Path::Tiny::path($target)->child('blib/lib');
-  push @lib, Path::Tiny::path($target)->child('blib/arch');
-
-  local $ENV{PERL5LIB} = join $sep, @lib;
-
-  my $wd = File::pushd::pushd( Path::Tiny::path($root)->absolute );    ## no critic (Variables::ProhibitUnusedVarsStricter)
-  return system 'dzil', @{$arg};
-}
-
-1;
