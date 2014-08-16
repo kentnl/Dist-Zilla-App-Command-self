@@ -4,7 +4,7 @@ use warnings;
 use utf8;
 
 package Dist::Zilla::App::Command::self;
-$Dist::Zilla::App::Command::self::VERSION = '0.001000';
+$Dist::Zilla::App::Command::self::VERSION = '0.001001';
 # ABSTRACT: Build a distribution with a bootstrapped version of itself.
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -124,7 +124,7 @@ Dist::Zilla::App::Command::self - Build a distribution with a bootstrapped versi
 
 =head1 VERSION
 
-version 0.001000
+version 0.001001
 
 =head1 SYNOPSIS
 
