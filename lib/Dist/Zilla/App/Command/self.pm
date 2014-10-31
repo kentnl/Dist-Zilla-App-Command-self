@@ -4,7 +4,7 @@ use warnings;
 
 package Dist::Zilla::App::Command::self;
 
-our $VERSION = '0.001002';
+our $VERSION = '0.001003';
 
 # ABSTRACT: Build a distribution with a bootstrapped version of itself.
 
@@ -62,7 +62,7 @@ Dist::Zilla::App::Command::self - Build a distribution with a bootstrapped versi
 
 =head1 VERSION
 
-version 0.001002
+version 0.001003
 
 =head1 SYNOPSIS
 

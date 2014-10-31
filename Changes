@@ -1,5 +1,7 @@
 Release history for Dist-Zilla-App-Command-self
 
+0.001003 2014-10-31T09:38:03Z 41d90db
+
 0.001002 2014-10-31T09:37:01Z bbef681
  [Dependencies::Stats]
  - Dependencies changed since 0.001001, see misc/*.deps* for details
