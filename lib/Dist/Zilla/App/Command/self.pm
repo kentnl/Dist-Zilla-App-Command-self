@@ -128,7 +128,7 @@ The iteration of building the distribution itself from source using C<Generation
 
 =head1 AUTHOR
 
-Kent Fredric <kentfredric@gmail.com>
+Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
