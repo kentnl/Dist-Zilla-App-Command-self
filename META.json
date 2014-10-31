@@ -84,7 +84,7 @@
             "Test::Pod::Coverage" : "1.08"
          },
          "suggests" : {
-            "Dist::Zilla::App::Command::bakeini" : "0.001003",
+            "Dist::Zilla::App::Command::bakeini" : "0.001004",
             "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.022000"
          }
       },
@@ -139,7 +139,7 @@
          "Carp" : "1.34",
          "Dist::Zilla" : "5.023",
          "Dist::Zilla::App" : "5.023",
-         "Dist::Zilla::App::Command::bakeini" : "0.001003",
+         "Dist::Zilla::App::Command::bakeini" : "0.001004",
          "Dist::Zilla::Plugin::Author::KENTNL::RecommendFixes" : "0.004000",
          "Dist::Zilla::Plugin::Authority" : "1.009",
          "Dist::Zilla::Plugin::AutoPrereqs" : "5.023",
@@ -177,7 +177,7 @@
          "Dist::Zilla::Plugin::RunExtraTests" : "0.023",
          "Dist::Zilla::Plugin::Test::CPAN::Changes" : "0.008",
          "Dist::Zilla::Plugin::Test::Compile::PerFile" : "0.003000",
-         "Dist::Zilla::Plugin::Test::EOL" : "0.14",
+         "Dist::Zilla::Plugin::Test::EOL" : "0.15",
          "Dist::Zilla::Plugin::Test::Kwalitee" : "2.11",
          "Dist::Zilla::Plugin::Test::MinimumVersion" : "2.000005",
          "Dist::Zilla::Plugin::Test::Perl::Critic" : "2.112410",
@@ -383,7 +383,7 @@
                }
             },
             "name" : "@Author::KENTNL/Test::EOL",
-            "version" : "0.14"
+            "version" : "0.15"
          },
          {
             "class" : "Dist::Zilla::Plugin::Test::MinimumVersion",
