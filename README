@@ -3,7 +3,7 @@ NAME
     bootstrapped version of itself.
 
 VERSION
-    version 0.001001
+    version 0.001002
 
 SYNOPSIS
     This is a different approach to using "[Bootstrap::lib]" that absolves a
@@ -64,7 +64,7 @@ CAVEATS
         "Generation.Build"
 
 AUTHOR
-    Kent Fredric <kentfredric@gmail.com>
+    Kent Fredric <kentnl@cpan.org>
 
 COPYRIGHT AND LICENSE
     This software is copyright (c) 2014 by Kent Fredric
