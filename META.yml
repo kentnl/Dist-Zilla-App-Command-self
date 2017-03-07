@@ -20,7 +20,7 @@ name: Dist-Zilla-App-Command-self
 provides:
   Dist::Zilla::App::Command::self:
     file: lib/Dist/Zilla/App/Command/self.pm
-    version: '0.001003'
+    version: '0.001004'
 recommends:
   Path::Tiny: '0.058'
 requires:
@@ -35,4 +35,4 @@ resources:
   bugtracker: https://github.com/kentnl/Dist-Zilla-App-Command-self/issues
   homepage: https://github.com/kentnl/Dist-Zilla-App-Command-self
   repository: https://github.com/kentnl/Dist-Zilla-App-Command-self.git
-version: '0.001003'
+version: '0.001004'

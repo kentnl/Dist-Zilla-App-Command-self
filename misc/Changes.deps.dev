@@ -1,6 +1,8 @@
 This file contains changes to DEVELOPMENT dependencies only ( both REQUIRED and OPTIONAL )
 
-0.001003
+0.001004
+
+0.001003 2017-03-07T17:08:39Z
  [Added / develop requires]
  - Dist::Zilla::Plugin::Author::KENTNL::TravisCI 0.001002
  - Dist::Zilla::Plugin::MetaYAML::Minimal
