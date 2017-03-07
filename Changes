@@ -1,6 +1,8 @@
 Release history for Dist-Zilla-App-Command-self
 
 {{$NEXT}}
+
+0.001003 2017-03-07T17:08:39Z e44adf0
  - Bugfix: Avoid test failures with -Ddefault_inc_excludes_dot
 
  [Dependencies::Stats]
